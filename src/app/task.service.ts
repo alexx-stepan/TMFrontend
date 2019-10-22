@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {TASKS} from "./tasks";
 import {Task} from "./Task";
 import {Observable, of} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,39 @@ import {HttpClient} from "@angular/common/http";
 export class TaskService {
 
   private tasksUrl = 'api/tasks/all';
+  private httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
 
   constructor(private http: HttpClient) { }
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.tasksUrl);
+    return this.http.get<Task[]>(this.tasksUrl)
+      .pipe(
+        catchError(this.handleError<Task[]>('getTasks', []))
+      );
   }
 
   getTask(id: number): Observable<Task> {
-    return of(TASKS.find(task => task.id === id));
+    return this.http.get<Task>(`api/tasks/${id}`)
+      .pipe(
+        catchError(this.handleError<Task>(`getTask id=${id}`))
+      )
+  }
+
+  updateTask(task: Task): Observable<any> {
+    return this.http.put('api/tasks', task, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<any>('updateTask'))
+      );
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log('Error:');
+      console.log(error);
+
+      return of(result as T);
+    }
   }
 }
