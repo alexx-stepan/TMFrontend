@@ -1,0 +1,10 @@
+<div *ngIf="task">
+  <h2>{{task.description | uppercase}}</h2>
+  <div><span>id: </span>{{task.id}}</div>
+
+  <label>description:
+    <input [(ngModel)]="task.description" placeholder="description" />
+  </label>
+</div>
+
+<button (click)="goBack()">Back</button>

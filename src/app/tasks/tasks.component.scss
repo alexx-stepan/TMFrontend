@@ -1,0 +1,52 @@
+.tasks {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+
+  li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    //padding: .3em 0;
+    font-size: medium;
+    height: 2em;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &.selected {
+      background-color: #CFD8DC;
+      color: white;
+    }
+    &.selected:hover {
+      background-color: #BBD8DC;
+      color: white;
+    }
+  }
+
+  li:hover {
+    color: aliceblue;
+    background-color: #DDD;
+    left: .1em;
+  }
+
+  .badge {
+    display: inline-flex;
+    font-size: medium;
+    color: white;
+    background-color: #405061;
+    //padding: 0.8em 0.7em 0 0.7em;
+    width: 2em;
+    //line-height: 0.5em;
+    position: relative;
+    left: -1px;
+    //top: -4px;
+    height: 2em;
+    align-items: center;
+    justify-content: center;
+    margin-right: .8em;
+    border-radius: 5px 0 0 5px;
+  }
+}

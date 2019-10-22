@@ -1,0 +1,8 @@
+<div>
+  <ul class="tasks">
+    <li *ngFor="let task of tasks"
+        routerLink="/task/{{task.id}}">
+      <span class="badge">{{task.id}}</span> {{task.description}}
+    </li>
+  </ul>
+</div>
