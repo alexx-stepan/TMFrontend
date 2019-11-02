@@ -1,0 +1,18 @@
+<div class="alert" [hidden]="!error">
+  Please try again.
+</div>
+
+<div mat-dialog-content>
+  <mat-form-field>
+    <label for="username">Username:</label>
+    <input type="text" class="form-control" id="username" name="username" matInput [(ngModel)]="credentials.username" />
+  </mat-form-field>
+
+  <label for="password">Password:</label>
+  <input type="password" class="form-control" id="password" name="password" matInput [(ngModel)]="credentials.password" />
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="credentials.username" (click)="login()">Login</button>
+</div>

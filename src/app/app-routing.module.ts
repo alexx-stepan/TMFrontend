@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {TasksComponent} from "./tasks/tasks.component";
 import {TaskDetailComponent} from "./task-detail/task-detail.component";
+import {LoginComponent} from "./login/login.component";
 
 
 const routes: Routes = [
-  {path: 'tasks', component: TasksComponent},
   {path: '', redirectTo: '/tasks', pathMatch: 'full'},
-  {path: 'task/:id', component: TaskDetailComponent}
+  {path: 'tasks', component: TasksComponent},
+  {path: 'task/:id', component: TaskDetailComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

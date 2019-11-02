@@ -1,7 +1,15 @@
 <h3>{{title}}</h3>
 
-<nav>
+<nav class="navBar">
   <a routerLink="/tasks">Tasks</a>
+  <a (click)="login()" *ngIf="!authenticated()">Login</a>
+  <a (click)="logout()">Logout</a>
 </nav>
 
-<router-outlet></router-outlet>
+<div [hidden]="authenticated()">
+  <p>Please sign in</p>
+</div>
+
+<div *ngIf="authenticated()">
+  <router-outlet></router-outlet>
+</div>
