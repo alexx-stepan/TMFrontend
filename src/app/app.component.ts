@@ -16,22 +16,16 @@ export class AppComponent {
   constructor(
     private app: AppService,
     private http: HttpClient,
-    private router: Router,
-    public dialog: MatDialog) {
+    private router: Router) {
+
     this.app.authenticate(undefined, undefined);
+
+    if (!this.authenticated())
+      this.login();
   }
 
   login(): void {
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '250px'
-    });
-
-    dialogRef.afterClosed().subscribe(username => {
-      if (username)
-        console.log('Successfully signed in: ' + username);
-
-      this.router.navigateByUrl('/');
-    });
+    this.app.login();
   }
 
   logout(): void {

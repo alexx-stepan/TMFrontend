@@ -1,15 +1,21 @@
-<h3>{{title}}</h3>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{title}}</span>
+    <nav class="navBar">
+      <a routerLink="/tasks">Tasks</a>
+      <a (click)="login()" *ngIf="!authenticated()">Login</a>
+    </nav>
+    <span class="spacer"></span>
+    <button mat-flat-button color="accent" (click)="logout()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-<nav class="navBar">
-  <a routerLink="/tasks">Tasks</a>
-  <a (click)="login()" *ngIf="!authenticated()">Login</a>
-  <a (click)="logout()">Logout</a>
-</nav>
+<div class="body">
+  <div [hidden]="authenticated()">
+    <p>Please sign in</p>
+  </div>
 
-<div [hidden]="authenticated()">
-  <p>Please sign in</p>
-</div>
-
-<div *ngIf="authenticated()">
-  <router-outlet></router-outlet>
+  <div *ngIf="authenticated()">
+    <router-outlet></router-outlet>
+  </div>
 </div>

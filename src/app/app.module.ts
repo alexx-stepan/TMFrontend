@@ -17,6 +17,8 @@ import {XhrInterceptor} from "./XhrInterceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule, MatInputModule} from "@angular/material";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {MatButtonModule, MatInputModule} from "@angular/material";
     MatInputModule,
     MatButtonModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    MatDividerModule
   ],
   providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   // providers: [],

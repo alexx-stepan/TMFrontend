@@ -12,6 +12,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 export class LoginComponent implements OnInit {
 
   credentials = {username: '', password: ''};
+  error = false;
 
   constructor(
     private app: AppService,
@@ -22,11 +23,20 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.app.authenticate(this.credentials, null);
+    this.app.authenticate(this.credentials, authenticated => {
+      if (!authenticated)
+        this.error = true;
+      else
+        this.dialogRef.close();
+    });
   }
 
   onCancel(): void {
     this.dialogRef.close();
+  }
+
+  authenticated(): boolean {
+    return this.app.authenticated;
   }
 }
 

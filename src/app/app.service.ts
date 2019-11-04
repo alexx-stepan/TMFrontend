@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {Observable, of} from "rxjs";
+import {catchError} from "rxjs/operators";
+import {LoginComponent} from "./login/login.component";
+import {MatDialog} from "@angular/material";
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +16,26 @@ export class AppService {
   private authUrl = 'api/user';
   private logoutUrl = 'api/logout';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {}
 
   authenticate(credentials, callback): void {
     const headers = AppService.createHeaders(credentials);
 
     this.http.get(this.authUrl, {headers: headers})
-      .subscribe(response => {
+      .pipe(
+        catchError(this.handleError<any>('Sign in'))
+      ).subscribe(response => {
         this.authenticated = !!response['name'];  // response['name'] ? true : false;
 
-        return callback && callback();
+        return callback && callback(this.authenticated);
       });
+  }
+
+  login(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '500px',
+      disableClose: true
+    });
   }
 
   logout(): void {
@@ -30,6 +43,7 @@ export class AppService {
       .subscribe(() => {
         this.authenticated = false;
         this.router.navigateByUrl('/tasks');
+        this.login();
       });
   }
 
@@ -37,5 +51,14 @@ export class AppService {
     return new HttpHeaders(credentials
         ? {authorization : 'Basic ' + btoa(credentials.username + ':' + credentials.password)}
         : {});
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log('Error: ');
+      console.log(error);
+
+      return of(result as T);
+    }
   }
 }
