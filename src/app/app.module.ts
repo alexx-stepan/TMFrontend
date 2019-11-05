@@ -17,15 +17,19 @@ import {XhrInterceptor} from "./XhrInterceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule, MatInputModule} from "@angular/material";
+import {MatTabsModule} from "@angular/material/tabs";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
     TaskDetailComponent,
-    LoginComponent
+    LoginComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatInputModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSidenavModule,
+    MatTabsModule
   ],
   providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   // providers: [],

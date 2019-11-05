@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {AppService} from "./app.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {MatDialog} from "@angular/material";
-import {LoginComponent} from "./login/login.component";
 
 @Component({
   selector: 'app-root',
@@ -12,6 +10,13 @@ import {LoginComponent} from "./login/login.component";
 })
 export class AppComponent {
   title = 'Task Management';
+
+  links = [
+    {name: 'Tasks', url: 'tasks'},
+    {name: 'History', url: 'history'}
+  ];
+
+  activeLink = this.links[0].url;
 
   constructor(
     private app: AppService,

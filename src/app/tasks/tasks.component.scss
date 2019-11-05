@@ -2,7 +2,7 @@
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  width: 20em;
 
   li {
     cursor: pointer;
@@ -16,6 +16,7 @@
     border-radius: 4px;
     overflow: hidden;
 
+    // & is a selector of the parent element
     &.selected {
       background-color: #CFD8DC;
       color: white;

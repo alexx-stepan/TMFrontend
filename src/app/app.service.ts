@@ -34,7 +34,8 @@ export class AppService {
   login(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '500px',
-      disableClose: true
+      disableClose: true,
+      backdropClass: 'blurred-back'
     });
   }
 

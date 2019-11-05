@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+}
+
+.blurred-back {
+  //backdrop-filter: blur(2px) grayscale(0.7);
+  //background-color: deepskyblue;
+  background-image: radial-gradient(circle, deepskyblue, #2262fa 5%, dodgerblue);
+}
