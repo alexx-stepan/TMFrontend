@@ -1,8 +1,14 @@
-<div>
-  <ul class="tasks">
-    <li *ngFor="let task of tasks"
-        routerLink="/task/{{task.id}}">
-      <span class="badge">{{task.id}}</span> {{task.description}}
-    </li>
-  </ul>
+<div class="container">
+  <mat-card class="filters">
+    Filters of tasks
+  </mat-card>
+
+  <mat-card class="task-list">
+    <ul class="tasks">
+      <li *ngFor="let task of tasks"
+          routerLink="/task/{{task.id}}">
+        <span class="badge">{{task.id}}</span> {{task.description}}
+      </li>
+    </ul>
+  </mat-card>
 </div>

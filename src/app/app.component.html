@@ -1,13 +1,13 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>{{title}}</span>
-
-    <span class="spacer"></span>
-    <button mat-flat-button color="accent" (click)="logout()">Logout</button>
-  </mat-toolbar-row>
-</mat-toolbar>
-
 <div class="body">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>{{title}}</span>
+
+      <span class="spacer"></span>
+      <button mat-flat-button color="accent" (click)="logout()">Logout</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
   <nav mat-tab-nav-bar disableRipple="true" class="navBar">
     <a mat-tab-link *ngFor="let link of links"
        routerLink="{{link.url}}"
@@ -15,11 +15,9 @@
        [active]="activeLink == link.url">{{link.name}}</a>
   </nav>
 
-  <div [hidden]="authenticated()">
-    <p>Please sign in</p>
-  </div>
+<!--  <router-outlet *ngIf="authenticated()"></router-outlet>-->
 
-  <div *ngIf="authenticated()">
+  <div *ngIf="authenticated()" class="content">
     <router-outlet></router-outlet>
   </div>
 </div>

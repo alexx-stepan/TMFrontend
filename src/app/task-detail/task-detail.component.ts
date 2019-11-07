@@ -11,7 +11,7 @@ import {Location} from "@angular/common";
 })
 export class TaskDetailComponent implements OnInit {
 
-  @Input() task: Task;
+  /* @Input() */ task: Task;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService,

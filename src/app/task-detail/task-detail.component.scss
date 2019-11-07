@@ -1,0 +1,36 @@
+// Should be used to style just the component element.
+// This is to make elements take all available height.
+:host {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1 1 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  padding: 0 0 0 1em;
+  flex: 1 1 auto;
+
+  .specifics {
+    flex-grow: 1;
+
+    min-width: 15em;
+    margin: 0 1em 1em 0;
+
+    background: rgba(0,0,0,.03);
+  }
+
+  .task {
+    flex-grow: 10;
+
+    min-width: 30em;
+    margin: 0 1em 1em 0;
+
+    background: rgba(0,0,0,.03);
+  }
+}

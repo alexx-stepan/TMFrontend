@@ -22,6 +22,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HistoryComponent } from './history/history.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HistoryComponent } from './history/history.component';
     MatToolbarModule,
     MatDividerModule,
     MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
   ],
   providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   // providers: [],

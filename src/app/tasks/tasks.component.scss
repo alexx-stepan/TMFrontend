@@ -1,8 +1,45 @@
+// Should be used to style just the component element.
+// This is to make elements take all available height.
+:host {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1 1 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  padding: 0 0 0 1em;
+  flex: 1 1 auto;
+
+  .filters {
+    flex-grow: 1;
+
+    min-width: 15em;
+    margin: 0 1em 1em 0;
+
+    background: rgba(0,0,0,.03);
+  }
+
+  .task-list {
+    flex-grow: 10;
+
+    min-width: 30em;
+    margin: 0 1em 1em 0;
+
+    background: rgba(0,0,0,.03);
+  }
+}
+
 .tasks {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 20em;
+  width: 30em;
 
   li {
     cursor: pointer;
@@ -10,9 +47,8 @@
     left: 0;
     background-color: #EEE;
     margin: .5em;
-    //padding: .3em 0;
     font-size: medium;
-    height: 2em;
+    height: 3em;
     border-radius: 4px;
     overflow: hidden;
 
@@ -38,13 +74,10 @@
     font-size: medium;
     color: white;
     background-color: #405061;
-    //padding: 0.8em 0.7em 0 0.7em;
     width: 2em;
-    //line-height: 0.5em;
     position: relative;
     left: -1px;
-    //top: -4px;
-    height: 2em;
+    height: 3em;
     align-items: center;
     justify-content: center;
     margin-right: .8em;
