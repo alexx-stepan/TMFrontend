@@ -16,21 +16,45 @@
   padding: 0 0 0 1em;
   flex: 1 1 auto;
 
-  .specifics {
-    flex-grow: 1;
-
-    min-width: 15em;
-    margin: 0 1em 1em 0;
-
-    background: rgba(0,0,0,.03);
-  }
-
   .task {
     flex-grow: 10;
 
     min-width: 30em;
     margin: 0 1em 1em 0;
 
+    flex-basis: 0;
+    height: auto;
+
     background: rgba(0,0,0,.03);
+
+    .title {
+      padding-bottom: 8px;
+      margin: 0;
+
+      word-wrap: break-word;
+      font-size: large;
+
+      border-bottom: 2px #3f51b5 solid;
+    }
+
+    .description {
+      padding: 8px 0;
+      //white-space: pre-line;
+      white-space: pre-wrap;
+      border-bottom: 2px #3f51b5 solid;
+    }
+  }
+
+  .specifics {
+    flex-grow: 1;
+
+    min-width: 15em;
+    margin: 0 1em 1em 0;
+
+    background: rgba(0, 0, 0, .03);
+  }
+
+  * {
+    box-shadow: none;
   }
 }

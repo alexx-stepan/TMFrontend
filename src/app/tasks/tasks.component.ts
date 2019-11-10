@@ -10,6 +10,7 @@ import {TaskService} from "../task.service";
 export class TasksComponent implements OnInit {
 
   tasks: Task[];
+  columns = ['title', 'project', 'priority', 'status'];
 
   constructor(private taskService: TaskService) { }
 

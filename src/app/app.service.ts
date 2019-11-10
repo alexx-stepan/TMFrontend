@@ -25,7 +25,7 @@ export class AppService {
       .pipe(
         catchError(this.handleError<any>('Sign in'))
       ).subscribe(response => {
-        this.authenticated = !!response['name'];  // response['name'] ? true : false;
+        this.authenticated = response && !!response['name'];  // response['name'] ? true : false;
 
         return callback && callback(this.authenticated);
       });

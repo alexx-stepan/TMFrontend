@@ -11,7 +11,6 @@ import {
   HttpClientModule
 } from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
-import {Observable} from "rxjs";
 import {AppService} from "./app.service";
 import {XhrInterceptor} from "./XhrInterceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +22,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HistoryComponent } from './history/history.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import {MatCardModule} from '@angular/material/card';
     MatDividerModule,
     MatSidenavModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   // providers: [],

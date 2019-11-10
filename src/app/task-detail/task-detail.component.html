@@ -1,16 +1,15 @@
 <div class="container">
-  <mat-card class="task">
-    <div *ngIf="task">
-      <h2>{{task.description | uppercase}}</h2>
-      <div><span>id: </span>{{task.id}}</div>
+  <mat-card *ngIf="task" class="task">
+    <mat-card-title class="title">{{task.title}}</mat-card-title>
 
-      <label>description:
-        <input [(ngModel)]="task.description" placeholder="description" />
-      </label>
-    </div>
+    <mat-card-content class="description">
+      <p>{{task.description}}</p>
+    </mat-card-content>
 
-    <button (click)="goBack()">Back</button>
-    <button (click)="save()">Save</button>
+    <mat-card-actions>
+      <button (click)="goBack()">Back</button>
+      <button (click)="save()">Save</button>
+    </mat-card-actions>
   </mat-card>
 
   <mat-card class="specifics">

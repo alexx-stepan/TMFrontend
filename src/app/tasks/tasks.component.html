@@ -4,11 +4,16 @@
   </mat-card>
 
   <mat-card class="task-list">
-    <ul class="tasks">
-      <li *ngFor="let task of tasks"
-          routerLink="/task/{{task.id}}">
-        <span class="badge">{{task.id}}</span> {{task.description}}
-      </li>
-    </ul>
+    <table mat-table [dataSource]="tasks" class="tasks">
+      <mat-text-column name="title" headerText="Title"></mat-text-column>
+      <mat-text-column name="project" headerText="Project" justify="end"></mat-text-column>
+      <mat-text-column name="priority" headerText="Priority" justify="end"></mat-text-column>
+      <mat-text-column name="status" headerText="Status" justify="end"></mat-text-column>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let task; columns: columns;"
+          routerLink="/task/{{task.id}}"
+          class="row-link"></tr>
+    </table>
   </mat-card>
 </div>

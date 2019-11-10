@@ -16,6 +16,10 @@
   padding: 0 0 0 1em;
   flex: 1 1 auto;
 
+  * {
+    box-shadow: none;
+  }
+
   .filters {
     flex-grow: 1;
 
@@ -30,57 +34,32 @@
 
     min-width: 30em;
     margin: 0 1em 1em 0;
+    padding: 0;
 
     background: rgba(0,0,0,.03);
   }
 }
 
 .tasks {
-  margin: 0 0 2em 0;
-  list-style-type: none;
+  width: 100%;
+  margin: 0;
   padding: 0;
-  width: 30em;
 
-  li {
+  .row-link {
     cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: #EEE;
-    margin: .5em;
-    font-size: medium;
-    height: 3em;
-    border-radius: 4px;
-    overflow: hidden;
 
-    // & is a selector of the parent element
-    &.selected {
-      background-color: #CFD8DC;
-      color: white;
+    &:focus {
+      outline: none;
     }
-    &.selected:hover {
-      background-color: #BBD8DC;
-      color: white;
+
+    &:hover {
+      color: aliceblue;
+      background-color: #DDD;
+      left: .1em;
     }
-  }
 
-  li:hover {
-    color: aliceblue;
-    background-color: #DDD;
-    left: .1em;
-  }
-
-  .badge {
-    display: inline-flex;
-    font-size: medium;
-    color: white;
-    background-color: #405061;
-    width: 2em;
-    position: relative;
-    left: -1px;
-    height: 3em;
-    align-items: center;
-    justify-content: center;
-    margin-right: .8em;
-    border-radius: 5px 0 0 5px;
+    &:focus:hover {
+      background-color: #6877ca;
+    }
   }
 }
