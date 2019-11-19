@@ -3,6 +3,7 @@ import {Task} from "./Task";
 import {Observable, of} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
+import {TaskUpdate} from "./TaskUpdate";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,10 @@ export class TaskService {
       .pipe(
         catchError(this.handleError<Task>(`getTask id=${id}`))
       )
+  }
+
+  getUpdates(id: number): Observable<TaskUpdate[]> {
+    return this.http.get<TaskUpdate[]>(`api/tasks/updates/all/${id}`);
   }
 
   updateTask(task: Task): Observable<any> {

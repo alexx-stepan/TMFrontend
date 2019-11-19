@@ -20,23 +20,69 @@
     box-shadow: none;
   }
 
-  .filters {
+  .supplementary-block {
     flex-grow: 1;
+
+    padding: 0;
 
     min-width: 15em;
     margin: 0 1em 1em 0;
 
-    background: rgba(0,0,0,.03);
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    background-color: transparent;
+
+    .filters {
+      padding: .5em ;
+      flex-grow: 1;
+
+      background: rgba(0,0,0,.03);
+
+      .filters-header {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+    }
   }
 
-  .task-list {
+  .essential-block {
     flex-grow: 10;
 
     min-width: 30em;
     margin: 0 1em 1em 0;
     padding: 0;
 
-    background: rgba(0,0,0,.03);
+    overflow: hidden;
+
+    .tasks-actions {
+      height: 1.5em;
+
+      margin-bottom: .4em;
+
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .tasks-actions-button {
+        height: 100%;
+        line-height: inherit;
+      }
+    }
+
+    .task-list {
+      margin: 0;
+      padding: 0;
+
+      height: 100%;
+
+      background: rgba(0,0,0,.03);
+    }
   }
 }
 

@@ -10,9 +10,46 @@
       <button (click)="goBack()">Back</button>
       <button (click)="save()">Save</button>
     </mat-card-actions>
+
+    <span class="divider"></span>
+
+    <div *ngFor="let update of taskUpdates" class="update-item">
+      <div class="updated-parameters">
+        <p *ngIf="update.newAssigneeId">
+          "Assigned to' changed from
+          <span>{{update.oldAssigneeId}}</span>
+          to
+          <span>{{update.newAssigneeId}}</span>
+        </p>
+
+        <p *ngIf="update.newPriority">
+          "Priority" changed from
+          <span>{{update.oldPriority}}</span>
+          to
+          <span>{{update.newPriority}}</span>
+        </p>
+
+        <p *ngIf="update.newStatus">
+          "Status" changed from
+          <span>{{update.oldStatus}}</span>
+          to
+          <span>{{update.newStatus}}</span>
+        </p>
+
+        <p>
+          Updated by {{update.updatePerformerId}}
+        </p>
+      </div>
+
+      <p *ngIf="update.message" style="margin-bottom: 0;">
+        <span>{{update.message}}</span>
+      </p>
+
+      <span class="divider"></span>
+    </div>
   </mat-card>
 
   <mat-card class="specifics">
-    Task's specifics
+    Specifics:
   </mat-card>
 </div>

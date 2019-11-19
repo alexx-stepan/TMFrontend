@@ -23,6 +23,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { HistoryComponent } from './history/history.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {MatTableModule} from '@angular/material/table';
     MatSidenavModule,
     MatTabsModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule
   ],
   providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   // providers: [],
