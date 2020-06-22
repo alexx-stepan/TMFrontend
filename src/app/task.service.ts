@@ -35,6 +35,22 @@ export class TaskService {
     return this.http.get<TaskUpdate[]>(`api/tasks/updates/all/${id}`);
   }
 
+  getProjectName(projectId: number): Observable<string> {
+    return this.http.get(
+      `api/tasks/projectname/${projectId}`,
+      {
+        responseType: 'text'
+      });
+  }
+
+  getAssigneeName(employeeId: number): Observable<string> {
+    return this.http.get(
+      `api/tasks/assigneename/${employeeId}`,
+      {
+        responseType: 'text'
+      });
+  }
+
   updateTask(task: Task): Observable<any> {
     return this.http.put('api/tasks', task, this.httpOptions)
       .pipe(

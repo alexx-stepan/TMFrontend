@@ -14,10 +14,12 @@ export class TaskDetailComponent implements OnInit {
 
   /* @Input() */ task: Task;
   taskUpdates: TaskUpdate[];
+  projectName: string;
+  assigneeName: string;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService,
-              private location: Location) { }
+              private location: Location) {}
 
   ngOnInit() {
     this.getTask();
@@ -28,7 +30,11 @@ export class TaskDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
 
     this.taskService.getTask(id)
-      .subscribe(task => this.task = task);
+      .subscribe(task => {
+        this.task = task;
+        this.getProjectName(task.projectId);
+        this.getAssigneeName(task.assigneeId);
+      });
   }
 
   private getUpdates(): void {
@@ -44,5 +50,13 @@ export class TaskDetailComponent implements OnInit {
   save(): void {
     this.taskService.updateTask(this.task)
       .subscribe(() => this.goBack());
+  }
+
+  getAssigneeName(employeeId: number): void {
+    this.taskService.getAssigneeName(employeeId).subscribe(name => this.assigneeName = name);
+  }
+
+  getProjectName(projectId: number): void {
+    this.taskService.getProjectName(projectId).subscribe(name => this.projectName = name);
   }
 }

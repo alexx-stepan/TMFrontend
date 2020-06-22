@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 
   padding: 0 0 0 1em;
   flex: 1 1 auto;
@@ -31,10 +31,10 @@
       padding-bottom: 8px;
       margin: 0;
 
+      display: inline-block;
+
       word-wrap: break-word;
       font-size: large;
-
-      border-bottom: 2px #3f51b5 solid;
     }
 
     .description {
@@ -42,6 +42,7 @@
       //white-space: pre-line;
       white-space: pre-wrap;
       border-bottom: 2px #3f51b5 solid;
+      border-top: 2px #3f51b5 solid;
     }
 
     .update-item {
@@ -59,6 +60,16 @@
         justify-content: space-evenly;
       }
     }
+
+    .back-navigation-btn {
+      margin: 0 1em 1em 0;
+    }
+
+    .tasks-actions-button {
+      height: 100%;
+      line-height: 1.5em;
+      margin-right: 5px;
+    }
   }
 
   .specifics {
@@ -68,6 +79,11 @@
     margin: 0 1em 1em 0;
 
     background: rgba(0, 0, 0, .03);
+
+    .detail {
+      display: flex;
+      margin: 1em 0;
+    }
   }
 
   * {
@@ -82,4 +98,8 @@
   display: block;
 
   margin: 1em 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

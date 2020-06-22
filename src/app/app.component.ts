@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppService} from "./app.service";
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -20,8 +19,7 @@ export class AppComponent {
 
   constructor(
     private app: AppService,
-    private http: HttpClient,
-    private router: Router) {
+    private location: Location) {
 
     this.app.authenticate(undefined, undefined);
 
@@ -39,5 +37,9 @@ export class AppComponent {
 
   authenticated(): boolean {
     return this.app.authenticated;
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
