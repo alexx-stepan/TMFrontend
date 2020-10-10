@@ -27,7 +27,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   private getTask() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('id'); // 'id' parameter is specified in app-routing.module.ts
 
     this.taskService.getTask(id)
       .subscribe(task => {
