@@ -1,0 +1,33 @@
+.body {
+  background-color: #fafafa;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 1em;
+  }
+}
+
+.title {
+  margin-right: 1em;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  color: #FFFFFF;
+  font-size: large;
+
+  &:hover {
+    background-color: rgba(190, 190, 190, 0.1);
+  }
+}

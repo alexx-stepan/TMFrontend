@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card class="supplementary-block">
+    <div class="filters">
+      <div class="filters-header">
+        <span>Filters:</span>
+<!--        <button mat-button color="primary" (click)="resetFilters()" class="tasks-actions-button">Reset</button>-->
+        <button mat-button color="primary" class="tasks-actions-button">Reset</button>
+      </div>
+
+    </div>
+  </mat-card>
+
+  <div class="essential-block">
+    <div class="tasks-actions">
+      <button mat-stroked-button color="primary" (click)="createTask()" class="tasks-actions-button">Create task</button>
+    </div>
+
+    <mat-card class="task-list">
+      <table mat-table [dataSource]="tasks" class="tasks">
+        <mat-text-column name="title" headerText="Title"></mat-text-column>
+        <mat-text-column name="project" headerText="Project" justify="end"></mat-text-column>
+        <mat-text-column name="priority" headerText="Priority" justify="end"></mat-text-column>
+        <mat-text-column name="status" headerText="Status" justify="end"></mat-text-column>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let task; columns: columns;"
+            routerLink="/task/{{task.id}}"
+            class="row-link"></tr>
+      </table>
+    </mat-card>
+  </div>
+</div>

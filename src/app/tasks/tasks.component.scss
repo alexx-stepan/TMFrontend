@@ -1,0 +1,111 @@
+// Should be used to style just the component element.
+// This is to make elements take all available height.
+:host {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1 1 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  padding: 0 0 0 1em;
+  flex: 1 1 auto;
+
+  * {
+    box-shadow: none;
+  }
+
+  .supplementary-block {
+    flex-grow: 1;
+
+    padding: 0;
+
+    min-width: 15em;
+    margin: 0 1em 1em 0;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    background-color: transparent;
+
+    .filters {
+      padding: .5em ;
+      flex-grow: 1;
+
+      background: rgba(0,0,0,.03);
+
+      .filters-header {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+    }
+  }
+
+  .essential-block {
+    flex-grow: 10;
+
+    min-width: 30em;
+    margin: 0 1em 1em 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    .tasks-actions {
+      height: 1.5em;
+
+      margin-bottom: .4em;
+
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .tasks-actions-button {
+        height: 100%;
+        line-height: inherit;
+      }
+    }
+
+    .task-list {
+      margin: 0;
+      padding: 0;
+
+      height: 100%;
+
+      background: rgba(0,0,0,.03);
+    }
+  }
+}
+
+.tasks {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .row-link {
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      color: aliceblue;
+      background-color: #DDD;
+      left: .1em;
+    }
+
+    &:focus:hover {
+      background-color: #6877ca;
+    }
+  }
+}

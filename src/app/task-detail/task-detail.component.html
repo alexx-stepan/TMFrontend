@@ -1,0 +1,87 @@
+<div class="container">
+  <mat-card *ngIf="task" class="task">
+    <button mat-stroked-button color="primary" (click)="goBack()" class="back-navigation-btn">Back</button>
+    <mat-card-title class="title">{{task.title}}</mat-card-title>
+
+    <mat-card-content class="description">
+      <p>{{task.description}}</p>
+    </mat-card-content>
+
+    <div>
+<!--      <button mat-stroked-button color="primary" (click)="edit()" class="tasks-actions-button">Edit</button>-->
+      <button mat-stroked-button color="primary" class="tasks-actions-button">Edit</button>
+<!--      <button mat-stroked-button color="primary" (click)="createSubTask()" class="tasks-actions-button">+ Sub task</button>-->
+      <button mat-stroked-button color="primary" class="tasks-actions-button">+ Sub task</button>
+    </div>
+
+    <span class="divider"></span>
+
+    <div *ngFor="let update of taskUpdates" class="update-item">
+      <div class="updated-parameters">
+        <p *ngIf="update.newAssigneeId">
+          "Assigned to' changed from
+          <span>{{update.oldAssigneeId}}</span>
+          to
+          <span>{{update.newAssigneeId}}</span>
+        </p>
+
+        <p *ngIf="update.newPriority">
+          "Priority" changed from
+          <span>{{update.oldPriority}}</span>
+          to
+          <span>{{update.newPriority}}</span>
+        </p>
+
+        <p *ngIf="update.newStatus">
+          "Status" changed from
+          <span>{{update.oldStatus}}</span>
+          to
+          <span>{{update.newStatus}}</span>
+        </p>
+
+        <p>
+          Updated by {{update.updatePerformerId}}
+        </p>
+      </div>
+
+      <p *ngIf="update.message" style="margin-bottom: 0;">
+        <span>{{update.message}}</span>
+      </p>
+
+      <span class="divider"></span>
+    </div>
+  </mat-card>
+
+  <mat-card *ngIf="task" class="specifics">
+    <span style="text-decoration-line: underline">Specifics:</span>
+    <span class="detail">
+      <span>Assigned to:</span>
+      <span class="spacer"></span>
+      <span>{{assigneeName}}</span>
+    </span>
+
+    <span class="detail">
+      <span>Project:</span>
+      <span class="spacer"></span>
+      <span>{{projectName}}</span>
+    </span>
+
+    <span class="detail">
+      <span>Status:</span>
+      <span class="spacer"></span>
+      <span>{{task.status}}</span>
+    </span>
+
+    <span class="detail">
+      <span>Priority:</span>
+      <span class="spacer"></span>
+      <span>{{task.priority}}</span>
+    </span>
+
+    <span *ngIf="task.parentTaskId" class="detail">
+      <span>Parent task:</span>
+      <span class="spacer"></span>
+      <span>to create link {{task.parentTaskId}}</span>
+    </span>
+  </mat-card>
+</div>
