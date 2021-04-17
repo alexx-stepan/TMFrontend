@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:current-alpine
 
 WORKDIR /app
 
@@ -12,6 +12,4 @@ COPY . /app
 VOLUME ${PWD}:/app
 VOLUME /app/node_modules
 
-EXPOSE 4200
-
-CMD ng serve --host 0.0.0.0
+CMD ng serve --proxy-config proxy.conf.json --host 0.0.0.0
